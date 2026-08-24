@@ -302,10 +302,12 @@ function construirHoja(d, encoger){
   const citas = esc(d.citas).replace(/\n/g,"<br>");
   const sumario = [
     ["Leemos poco a poco la encíclica Laudato Si'","Llegim a poc a poc l'encíclica Laudato Si'","sec-laudato"],
+    ["Monición de entrada","Monició d'entrada","sec-mon-entrada"],
+    ["Monición para las lecturas","Monició per a les lectures","sec-mon-lecturas"],
     ["Lecturas del domingo","Lectures del diumenge","sec-lecturas"],
-    ["León XIV · Dilexi te y Magnifica Humanitas","Lleó XIV · Dilexi te i Magnifica Humanitas","sec-magisterio"],
     ["Oración de los fieles","Oració dels fidels","sec-fieles"],
     ["Oración final","Oració final","sec-oracion-final"],
+    ["León XIV · Dilexi te y Magnifica Humanitas","Lleó XIV · Dilexi te i Magnifica Humanitas","sec-magisterio"],
     ["Guía de oración mensual · Movimiento Laudato Si'","Guia d'oració mensual · Moviment Laudato Si'","sec-guia"],
     ["Noticias","Notícies","sec-noticias"],
     ["Cómo llegar","Com arribar-hi","sec-mapa"]
@@ -412,9 +414,9 @@ function construirHoja(d, encoger){
   '<span class="laudato-num">'+esc(d.ls_num)+'</span>'+fotoSeccion('laudato','Sube la imagen para Laudato Si\'')+bilP(d.ls_texto,VA.ls_texto)+
   '<p class="laudato-fuente">LAUDATO SI\'</p></section>'+
 
-  '<section class="seccion"><h2>'+bil('Monición de entrada','Monició d\'entrada')+'</h2>'+bilP(d.mon_entrada,VA.mon_entrada)+'</section>'+
+  '<section class="seccion" id="sec-mon-entrada"><h2>'+bil('Monición de entrada','Monició d\'entrada')+'</h2>'+bilP(d.mon_entrada,VA.mon_entrada)+'</section>'+
 
-  '<section class="seccion"><div class="bloque-azul"><h2 class="blanco" style="font-size:1.2rem;">'+bil('Monición para las lecturas','Monició per a les lectures')+'</h2>'+bilP(d.mon_lecturas,VA.mon_lecturas)+'</div></section>'+
+  '<section class="seccion" id="sec-mon-lecturas"><div class="bloque-azul"><h2 class="blanco" style="font-size:1.2rem;">'+bil('Monición para las lecturas','Monició per a les lectures')+'</h2>'+bilP(d.mon_lecturas,VA.mon_lecturas)+'</div></section>'+
 
   '<section class="seccion" id="sec-lecturas"><h2>'+bil('Primera lectura','Primera lectura')+'</h2><p class="rubro">'+bil(d.l1_rubro,VA.l1_rubro)+'</p>'+
   '<div class="estrofa">'+bilP(d.l1_texto,VA.l1_texto,verso)+'</div><p class="respuesta">'+bil('Palabra de Dios.','Paraula de Déu.')+'</p></section>'+
@@ -426,6 +428,16 @@ function construirHoja(d, encoger){
   '<p class="rubro">'+bil(d.l2_rubro,VA.l2_rubro)+'</p>'+bilP(d.l2_texto,VA.l2_texto)+
   '<p class="respuesta">'+bil(d.l2_resp,VA.l2_resp)+'</p></div></section>'+
 
+  '<section class="seccion"><h2>'+bil('Evangelio','Evangeli')+'</h2>'+fotoSeccion('evangelio','Sube la imagen para el Evangelio')+'<p class="rubro">'+bil(d.ev_rubro,VA.ev_rubro)+'</p>'+
+  bilP(d.ev_texto,VA.ev_texto)+'<p class="respuesta">'+bil('Palabra del Señor.','Paraula del Senyor.')+'</p></section>'+
+
+  '<section class="seccion" id="sec-fieles"><h2>'+bil('Oración de los fieles','Oració dels fidels')+'</h2>'+
+  '<p class="intro-sacerdote">'+bil(d.of_intro,VA.of_intro)+'</p>'+peticiones+'</section>'+
+
+  extrasHTML+
+
+  oracionHTML+
+
   '<section class="seccion" id="sec-magisterio"><h2>Dilexi te</h2>'+
   '<span class="laudato-num">'+esc(d.dilexit_num)+'</span>'+
   '<p class="cita-titular">'+bil(d.dilexit_cita,VA.dilexit_cita)+'</p>'+
@@ -436,16 +448,6 @@ function construirHoja(d, encoger){
   '<p class="cita-titular">'+bil(d.mh_cita,VA.mh_cita)+'</p>'+
   bilP(d.mh_texto,VA.mh_texto)+'<p class="laudato-fuente">'+bil(d.mh_fuente,VA.mh_fuente)+'</p>'+
   fotoSeccion('magnifica','Sube la imagen para Magnifica Humanitas')+'</section>'+
-
-  '<section class="seccion"><h2>'+bil('Evangelio','Evangeli')+'</h2>'+fotoSeccion('evangelio','Sube la imagen para el Evangelio')+'<p class="rubro">'+bil(d.ev_rubro,VA.ev_rubro)+'</p>'+
-  bilP(d.ev_texto,VA.ev_texto)+'<p class="respuesta">'+bil('Palabra del Señor.','Paraula del Senyor.')+'</p></section>'+
-
-  '<section class="seccion" id="sec-fieles"><h2>'+bil('Oración de los fieles','Oració dels fidels')+'</h2>'+
-  '<p class="intro-sacerdote">'+bil(d.of_intro,VA.of_intro)+'</p>'+peticiones+'</section>'+
-
-  extrasHTML+
-
-  oracionHTML+
 
   guiaHTML +
   noticiasHTML+

@@ -33,6 +33,7 @@ body{background:#fff;font-size:17px;line-height:1.6;}
 .vacio{color:var(--gris);text-align:center;padding:40px 0;}
 .cierre{margin-top:48px;border-top:1px solid var(--linea);padding-top:20px;font-size:0.8rem;color:var(--gris);text-align:center;line-height:1.6;}
 .cierre .firma{font-family:'DM Serif Display',serif;color:var(--azul);margin-bottom:6px;font-size:1rem;}
+.ver-anteriores{display:block;width:100%;margin:6px 0 14px;padding:13px 20px;background:none;border:1px dashed var(--azul,#778fff);border-radius:10px;color:var(--azul,#778fff);font-family:inherit;font-size:0.98rem;font-weight:600;cursor:pointer;transition:background .15s;}.ver-anteriores:hover{background:var(--azul-suave,#e5e9fa);}.anteriores[hidden]{display:none;}.anteriores{animation:aparece .2s ease;}@keyframes aparece{from{opacity:0;}to{opacity:1;}}
 </style>
 </head>
 <body>
@@ -58,13 +59,34 @@ body{background:#fff;font-size:17px;line-height:1.6;}
   if(typeof HOJAS !== 'undefined' && HOJAS.length){
     // ordenar por fecha descendente (más reciente arriba)
     HOJAS.sort((a,b)=> b.fecha.localeCompare(a.fecha));
-    lista.innerHTML = HOJAS.map(h =>
-      '<a class="item-hoja" href="'+h.archivo+'">'+
+    // Tarjeta de una hoja
+    function tarjeta(h){
+      return '<a class="item-hoja" href="'+h.archivo+'">'+
         '<div class="fecha">'+formatoFecha(h.fecha)+'</div>'+
         '<div class="titulo-hoja">'+h.titulo+'</div>'+
         '<div class="tiempo">'+h.tiempo+'</div>'+
-      '</a>'
-    ).join("");
+      '</a>';
+    }
+    // Solo las dos últimas eucaristías; el resto tras "Domingos anteriores".
+    const recientes = HOJAS.slice(0, 2);
+    const anteriores = HOJAS.slice(2);
+    let html = recientes.map(tarjeta).join("");
+    if(anteriores.length){
+      html += '<button type="button" id="ver-anteriores" class="ver-anteriores">Domingos anteriores</button>'+
+              '<div id="anteriores" class="anteriores" hidden>'+
+                anteriores.map(tarjeta).join("")+
+              '</div>';
+    }
+    lista.innerHTML = html;
+    const btn = document.getElementById('ver-anteriores');
+    if(btn){
+      btn.addEventListener('click', function(){
+        const cont = document.getElementById('anteriores');
+        const abierto = !cont.hasAttribute('hidden');
+        if(abierto){ cont.setAttribute('hidden',''); btn.textContent='Domingos anteriores'; }
+        else { cont.removeAttribute('hidden'); btn.textContent='Ocultar anteriores'; }
+      });
+    }
   } else {
     lista.innerHTML = '<li class="vacio">Aún no hay hojas publicadas.</li>';
   }
