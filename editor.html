@@ -328,7 +328,10 @@ function construirHoja(d, encoger){
     // b = [rotuloES, rotuloVA, textoES, textoVA, respES, respVA]
     function una(rot, txt, resp){
       const t = esc((txt||"").trim());
-      const cuerpo = t ? ('<strong>'+rot+':</strong> '+t) : ('<strong>'+rot+':</strong>');
+      const sinRotulo = (rot === 'Petició lliure');
+      let cuerpo;
+      if(sinRotulo){ cuerpo = t; }
+      else { cuerpo = t ? ('<strong>'+rot+':</strong> '+t) : ('<strong>'+rot+':</strong>'); }
       return '<p class="peticion">'+cuerpo+'</p><p class="resp">R/. '+resp+'</p>';
     }
     return '<span class="lang-es bloque">'+una(b[0],b[2],b[4])+'</span>'
