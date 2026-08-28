@@ -57,6 +57,7 @@ body{font-family:'Inter',sans-serif;color:var(--tinta);background:var(--panel);}
 .btn.sec{background:#fff;color:var(--azul);border:1px solid var(--azul);margin-top:8px;}
 .filebtn{display:block;border:1px dashed var(--azul);border-radius:7px;padding:12px;text-align:center;color:var(--azul);font-size:0.82rem;font-weight:600;cursor:pointer;background:#fff;}
 .filebtn input{display:none;}
+.quitar{display:inline-block;margin-top:6px;background:none;border:none;color:var(--gris);font-size:0.72rem;text-decoration:underline;cursor:pointer;padding:0;font-family:inherit;}
 
 /* --- Previsualización --- */
 .preview{overflow-y:auto;background:#d9dce4;padding:24px;}
@@ -72,6 +73,7 @@ body{font-family:'Inter',sans-serif;color:var(--tinta);background:var(--panel);}
 .hoja .masthead .titulo .linea text{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-0.01em;}
 .hoja .masthead .titulo .vlc{color:var(--azul-bloque);}
 .hoja .fecha-lit{font-weight:700;font-style:italic;font-size:0.85rem;border-top:2.5px solid var(--tinta);border-bottom:2.5px solid var(--tinta);padding:8px 0;margin-bottom:20px;}
+.hoja .dominio{font-style:italic;font-weight:700;color:var(--tinta);}
 .hoja .sumario{margin:18px 0;padding-left:0;}
 .hoja .sumario li{font-weight:700;color:var(--azul);font-size:1rem;list-style:none;margin-bottom:3px;}
 .hoja .sumario li a{color:var(--azul);text-decoration:none;display:inline-block;padding:3px 0;border-bottom:1px solid transparent;}
@@ -223,11 +225,17 @@ body{font-family:'Inter',sans-serif;color:var(--tinta);background:var(--panel);}
     </div></details>
 
     <details class="grupo"><summary>Bloques opcionales (aviso, oración, poema…)</summary><div class="cuerpo">
-      <div class="hint">Dos bloques libres que solo aparecen en la hoja si escribes algo. Se colocan antes de la oración final, con estilo de sección (título + texto).</div>
+      <div class="hint">Dos bloques libres que solo aparecen en la hoja si escribes algo o subes una imagen. Se colocan antes de la oración final, con estilo de sección (título + imagen + texto). La imagen es útil para un aviso o un cartel.</div>
       <div class="campo"><label>Bloque 1 · Título</label><input type="text" data-k="extra1_titulo"></div>
       <div class="campo"><label>Bloque 1 · Texto</label><textarea data-k="extra1_texto" data-max="1400"></textarea><div class="contador"></div></div>
+      <div class="campo"><label>Bloque 1 · Imagen (aviso o cartel)</label>
+        <label class="filebtn">Subir imagen del bloque 1<input type="file" accept="image/*" onchange="subirFoto(event,'extra1')"></label>
+        <button type="button" class="quitar" onclick="quitarFoto('extra1')">Quitar imagen</button></div>
       <div class="campo"><label>Bloque 2 · Título</label><input type="text" data-k="extra2_titulo"></div>
       <div class="campo"><label>Bloque 2 · Texto</label><textarea data-k="extra2_texto" data-max="1400"></textarea><div class="contador"></div></div>
+      <div class="campo"><label>Bloque 2 · Imagen (aviso o cartel)</label>
+        <label class="filebtn">Subir imagen del bloque 2<input type="file" accept="image/*" onchange="subirFoto(event,'extra2')"></label>
+        <button type="button" class="quitar" onclick="quitarFoto('extra2')">Quitar imagen</button></div>
     </div></details>
 
     <details class="grupo"><summary>Oración final (verso)</summary><div class="cuerpo">
@@ -258,7 +266,7 @@ const TOMAD = "Tomad, Señor, y recibid\ntoda mi libertad,\nmi memoria, mi enten
 const DEFAULTS = {"fecha": "Domingo XXIII del tiempo ordinario", "fecha2": "Ciclo A · 06/09/2026 · Año V", "lema": "Donde dos o tres están reunidos en mi nombre", "citas": "Ez 33, 7-9\nSal 94\nRm 13, 8-10\nMt 18, 15-20", "ls_num": "54", "ls_texto": "Llama la atención la debilidad de la reacción política internacional. El sometimiento de la política ante la tecnología y las finanzas se muestra en el fracaso de las Cumbres mundiales sobre medio ambiente.\n\nHay demasiados intereses particulares y muy fácilmente el interés económico llega a prevalecer sobre el bien común y a manipular la información para no ver afectados sus proyectos. En esta línea, el Documento de Aparecida reclama que «en las intervenciones sobre los recursos naturales no predominen los intereses de grupos económicos que arrasan irracionalmente las fuentes de vida».\n\nLa alianza entre la economía y la tecnología termina dejando afuera lo que no forme parte de sus intereses inmediatos. Así sólo podrían esperarse algunas declamaciones superficiales, acciones filantrópicas aisladas, y aun esfuerzos por mostrar sensibilidad hacia el medio ambiente, cuando en la realidad cualquier intento de las organizaciones sociales por modificar las cosas será visto como una molestia provocada por ilusos románticos o como un obstáculo a sortear.", "mon_entrada": "Comenzamos septiembre y con él un curso nuevo. La Palabra de este domingo nos sale al encuentro para recordarnos que la fe no se vive en solitario.\n\nHoy se nos confía una tarea incómoda y hermosa a la vez: hacernos responsables unos de otros. Dios pone a Ezequiel de atalaya sobre su pueblo, y Jesús nos enseña a acercarnos al hermano que se equivoca sin humillarlo, buscando ganarlo y no vencerlo.\n\nEs la diferencia entre la denuncia que señala desde lejos y la corrección que se pone al lado. Solo el amor tiene derecho a corregir, porque solo el amor busca de verdad el bien del otro.\n\nY todo esto lo hacemos como comunidad. No somos una suma de creyentes aislados: somos un cuerpo que se sostiene, se perdona y se acompaña.\n\nNos reunimos, pues, en su nombre, con la certeza que hoy nos regala el Evangelio: donde dos o tres se reúnen así, él está en medio de nosotros.", "mon_lecturas": "La primera lectura presenta al profeta como atalaya: el que vigila desde la muralla y avisa. Callar ante el mal no es prudencia, es complicidad.\n\nLa carta a los Romanos reduce toda la Ley a una sola deuda que nunca terminamos de pagar: amarnos los unos a los otros.\n\nEl evangelio nos da el itinerario concreto de la reconciliación, paso a paso, y termina con una promesa: la comunidad reunida en su nombre no está sola, porque él está en medio.", "l1_rubro": "Lectura del libro del profeta Ezequiel", "l1_texto": "Así dice el Señor:\n«A ti, hijo de hombre,\nte he puesto de atalaya en la casa de Israel;\ncuando escuches una palabra de mi boca,\nles advertirás de mi parte.\nSi yo digo al malvado:\n\"¡Malvado, eres reo de muerte!\",\ny tú no hablas advirtiendo al malvado\nque deje su camino,\nel malvado morirá por su culpa,\npero a ti te pediré cuenta de su sangre.\nPero si tú adviertes al malvado\nque deje su camino,\ny él no lo deja,\nél morirá por su culpa,\npero tú has salvado tu vida».", "salmo_r": "R/. Ojalá escuchéis hoy la voz del Señor: «No endurezcáis vuestro corazón».", "salmo_texto": "Venid, aclamemos al Señor,\ndemos vítores a la Roca que nos salva;\nentremos a su presencia dándole gracias,\nvitoreándolo con cantos. R/.\n\nEntrad, postrémonos por tierra,\nbendiciendo al Señor, creador nuestro.\nPorque él es nuestro Dios,\ny nosotros su pueblo,\nel rebaño que él guía. R/.\n\nOjalá escuchéis hoy su voz:\n«No endurezcáis el corazón como en Meribá,\ncomo el día de Masá en el desierto;\ncuando vuestros padres me pusieron a prueba\ny me tentaron, aunque habían visto mis obras». R/.", "l2_rubro": "Lectura de la carta de sant Pau als cristians de Roma", "l2_texto": "Germans, no quedeu a deure res a ningú. L'únic deure vostre ha de ser el d'estimar-vos els uns als altres. Qui estima els altres, ha complit la Llei.\n\nNo cometre adulteri, no matar, no robar, no desitjar allò que és d'un altre, i qualsevol altre manament, es troba en aquestes paraules: Estima els altres com a tu mateix.\n\nQui estima no fa cap mal als altres. Estimar és tota la Llei.", "l2_resp": "Paraula de Déu.", "dilexit_num": "29", "dilexit_cita": "«Lo mismo pasa con la fe: si no va acompañada de las obras, está completamente muerta.»", "dilexit_texto": "En la primera comunidad cristiana el programa de caridad no derivaba de análisis o de proyectos, sino directamente del ejemplo de Jesús, de las mismas palabras del Evangelio.\n\nLa Carta de Santiago dedica mucho espacio al problema de la relación entre ricos y pobres, lanzando a los creyentes dos enérgicos llamados que cuestionan su fe: «¿De qué le sirve a uno, hermanos míos, decir que tiene fe, si no tiene obras? ¿Acaso esa fe puede salvarlo?\n\n¿De qué sirve si uno de ustedes, al ver a un hermano o una hermana desnudos o sin el alimento necesario, les dice: \"Vayan en paz, caliéntense y coman\", y no les da lo que necesitan para su cuerpo? Lo mismo pasa con la fe: si no va acompañada de las obras, está completamente muerta» (St 2, 14-17).", "dilexit_fuente": "León XIV, Dilexi te (Te he amado) 29", "mh_num": "1", "mh_cita": "«Levantar una nueva torre de Babel o edificar la ciudad donde Dios y la humanidad habiten juntos.»", "mh_texto": "La magnífica humanidad que Dios ha creado se encuentra hoy ante una elección decisiva: levantar una nueva torre de Babel o edificar la ciudad donde Dios y la humanidad habiten juntos.\n\nCada generación recibe como herencia la tarea de dar forma a su propio tiempo: hacer madurar la historia como un lugar donde se proteja la dignidad de cada persona, se promueva la justicia y se haga posible la fraternidad. Pero en cada época se cierne el riesgo de construir un mundo inhumano y más injusto.\n\nAllí donde la humanidad corre el peligro de perder su rostro, nosotros, los cristianos, alzamos los ojos hacia el Dios que se hizo carne, sabiendo que «el misterio del hombre sólo se esclarece en el misterio del Verbo encarnado». En Jesucristo, esta magnífica humanidad encuentra el camino, la verdad y la vida, abriendo a cada uno de nosotros la vía para crecer hacia la plenitud.", "mh_fuente": "LEÓN XIV · MAGNIFICA HUMANITAS", "ev_rubro": "Lectura del santo evangelio según san Mateo (18, 15-20)", "ev_texto": "En aquel tiempo, dijo Jesús a sus discípulos:\n\n«Si tu hermano peca contra ti, ve y repréndelo a solas entre los dos. Si te hace caso, has salvado a tu hermano. Si no te hace caso, llama a otro o a otros dos, para que todo el asunto quede confirmado por boca de dos o tres testigos. Si no les hace caso, díselo a la comunidad, y si no hace caso ni siquiera a la comunidad, considéralo como un gentil o un publicano.\n\nEn verdad os digo que todo lo que atéis en la tierra quedará atado en el cielo, y todo lo que desatéis en la tierra quedará desatado en el cielo.\n\nOs digo, además, que si dos de vosotros se ponen de acuerdo en la tierra para pedir algo, se lo dará mi Padre que está en el cielo. Porque donde dos o tres están reunidos en mi nombre, allí estoy yo en medio de ellos.»", "of_intro": "Sacerdote: Señor, tú nos has hecho responsables unos de otros y nos prometes tu presencia allí donde nos reunimos en tu nombre. Confiados en esa promesa, te presentamos nuestras súplicas, respondiendo: R/. Señor, escúchanos. · R/. Senyor, escolta'ns.", "resp_cas": "Señor, escúchanos.", "resp_val": "Senyor, escolta'ns.", "pet1": "Te pedimos para que la Iglesia se situé siempre con el pobre, el débil y el desprotegido. Que haya una verdadera opción preferencial por los pobres y que sea apreciable por la sociedad.", "pet2": "Por la Paz en Irán, Palestina, Ucrania, Yemen, Sudán del Sur. Son demasiadas guerras, demasiado dolor. Por una humanidad unida y sin violencia, que el amor reine siempre.", "pet3": "Por la recuperación de los bosques de los incendios de este verano, son con nosotros y el resto de la Casa Común, la creación que debemos cuidar y conservar. Que no caigan en nuestro olvido ni en el de los políticos.", "pet4": "Perquè les accions del nostre dia a dia vagen encaminades a treballar pels descartats, els oblidats, aquells que no veiem i són quasi invisibles. Que puguem veure amb els ulls de l'amor el patiment del nostre proïsme i el nostre veí.", "pet5": "Perquè no ens deixem arrossegar per l'auge dels extremismes al món, que mantinguem una postura crítica, alerta i atenta als valors de la justícia social que se'ns mostren diàriament en l'evangeli.", "pet6": "Per la nostra Comunitat, que sàpiguem ajudar-nos a créixer els uns als altres, amb amor i afecte, que la cura mútua es mostre en l'alegria de trobar-nos cada setmana.", "extra1_titulo": "", "extra1_texto": "", "extra2_titulo": "", "extra2_texto": "", "not_mostrar": "si", "not1_titulo": "Memoria y justicia: Vicente Cañas SJ vuelve a la tierra Enawenê Nawê", "not1_url": "https://infosj.es/noticias/22350-memoria-y-justicia-vicente-canas-sj-vuelve-a-la-tierra-enawene-nawe", "not1_resumen": "La familia del hermano Vicente Cañas SJ participa en el entierro definitivo de sus restos en la Tierra Indígena Enawenê Nawê (Brasil).", "not2_titulo": "Ayuda al terremoto de Colombia", "not2_url": "https://infosj.es/noticias/22347-ayuda-terremoto-colombia", "not2_resumen": "Alboan y Entreculturas se movilizan tras el terremoto de magnitud 7,4 que sacudió el oeste de Colombia el 10 de agosto.", "not3_titulo": "Alboan: más de 480.000 personas acompañadas en 24 países durante 2025", "not3_url": "https://infosj.es/noticias/22342-alboan-mas-de-480-000-personas-acompanadas-en-24-paises-durante-2025", "not3_resumen": "La ONG jesuita presenta su memoria anual en un contexto de conflictos y debilitamiento de la cooperación internacional.", "oracion_final": "Cántame las verdades\n\nCántame las verdades de mi vida.\nOídas de tus labios\nno sonarán a cálido reproche,\nsino a amor que me acepta desgarrado.\nCántame las verdades.\n\nAcostumbro\ndiariamente a caer en el engaño\nde condolerme de mis propios lutos\ny, sin criterio, disculpar mis fallos.\nMiro tanto las faltas de los otros…\nTantas recetas doy que yo no hago…\nDime cómo me ves, Tú que me abarcas\ncon tus ojos eternos de milagro.\nNo perderé los ánimos. Tú sabes\ncorregir con amor. Lleva tu mano\na las secretas llagas. Vamos, cántame\nlas verdades que sanen mis pecados.\n\n(Luis Carlos Flores Mateos, SJ)", "pdf_guia": "guia-mensual.pdf"};
 const VA = {"fecha": "Diumenge XXIII durant l'any", "fecha2": "Cicle A · 06/09/2026 · Any V", "lema": "On n'hi ha dos o tres de reunits en el meu nom", "ls_texto": "Crida l'atenció la feblesa de la reacció política internacional. El sotmetiment de la política a la tecnologia i a les finances es mostra en el fracàs de les Cimeres mundials sobre medi ambient.\n\nHi ha massa interessos particulars i molt fàcilment l'interés econòmic arriba a prevaldre sobre el bé comú i a manipular la informació per no veure afectats els seus projectes. En esta línia, el Document d'Aparecida reclama que «en les intervencions sobre els recursos naturals no predominen els interessos de grups econòmics que arrasen irracionalment les fonts de vida».\n\nL'aliança entre l'economia i la tecnologia acaba deixant fora allò que no forma part dels seus interessos immediats. Així només es podrien esperar algunes declamacions superficials, accions filantròpiques aïllades, i fins i tot esforços per mostrar sensibilitat cap al medi ambient, quan en la realitat qualsevol intent de les organitzacions socials per modificar les coses serà vist com una molèstia provocada per il·lusos romàntics o com un obstacle a esquivar.", "mon_entrada": "Comencem setembre i amb ell un curs nou. La Paraula d'este diumenge ens ix a l'encontre per recordar-nos que la fe no es viu en solitari.\n\nHui se'ns confia una tasca incòmoda i bella alhora: fer-nos responsables els uns dels altres. Déu posa Ezequiel de sentinella sobre el seu poble, i Jesús ens ensenya a acostar-nos al germà que s'equivoca sense humiliar-lo, buscant guanyar-lo i no véncer-lo.\n\nÉs la diferència entre la denúncia que assenyala de lluny i la correcció que es posa al costat. Només l'amor té dret a corregir, perquè només l'amor busca de veritat el bé de l'altre.\n\nI tot això ho fem com a comunitat. No som una suma de creients aïllats: som un cos que se sosté, es perdona i s'acompanya.\n\nEns reunim, doncs, en el seu nom, amb la certesa que hui ens regala l'Evangeli: on n'hi ha dos o tres de reunits així, ell està enmig de nosaltres.", "mon_lecturas": "La primera lectura presenta el profeta com a sentinella: el qui vetla des de la muralla i avisa. Callar davant del mal no és prudència, és complicitat.\n\nLa carta als Romans redueix tota la Llei a un únic deute que mai acabem de pagar: estimar-nos els uns als altres.\n\nL'evangeli ens dóna l'itinerari concret de la reconciliació, pas a pas, i acaba amb una promesa: la comunitat reunida en el seu nom no està sola, perquè ell està enmig.", "l1_rubro": "Lectura del llibre del profeta Ezequiel 33, 7-9", "l1_texto": "El Senyor em digué:\n– «Fill d'home, t'he fet sentinella\nperquè vetles sobre el poble d'Israel.\nQuan sentes dels meus llavis una paraula,\nels has d'advertir de part meua.\nSi jo amenace el pecador amb la mort\ni tu no li dius res i no l'adverteixes\nque s'aparte del camí del mal,\nell morirà per culpa seua,\nperò jo et faré responsable de la seua sang.\nAra, si tu l'havies advertit que s'apartara del mal camí\ni es convertira, però no s'ha convertit,\nell morirà per culpa seua,\ni tu hauràs salvat la teua vida.»", "salmo_r": "R/ Tant de bo que avui sentíreu la veu de Déu: «No enduriu els vostres cors.»", "salmo_texto": "Veniu, celebrem el Senyor amb crits de festa,\naclamem la Roca que ens salva;\npresentem-nos davant d'ell a alabar-lo,\naclamem-lo amb els nostres cants. R/\n\nVeniu, prosternem-nos i adorem-lo,\nagenollem-nos davant del Senyor, que ens ha creat;\nell és el nostre Déu\ni nosaltres som el poble que ell pastura,\nel ramat que ell mateix guia. R/\n\nTant de bo que avui sentíreu la seua veu;\n«No enduriu els vostres cors com a Meribà,\ncom el dia de Massà, en el desert,\nquan van posar-me a prova els vostres pares,\ni em temptaren, tot i haver vist les meues obres.» R/", "l2_rubro": "Lectura de la carta de sant Pau als cristians de Roma 13, 8-10", "l2_texto": "Germans,\nno quedeu a deure res a ningú.\nL'únic deure vostre ha de ser\nel d'estimar-vos els uns als altres.\nQui estima els altres, ha complit la Llei.\nNo cometre adulteri,\nno matar,\nno robar,\nno desitjar allò que és d'un altre,\ni qualsevol altre manament,\nes troba en aquestes paraules:\nEstima els altres com a tu mateix.\nQui estima no fa cap mal als altres.\nEstimar és tota la Llei.", "l2_resp": "Paraula de Déu.", "ev_rubro": "Lectura de l'evangeli segons sant Mateu 18, 15-20", "ev_texto": "En aquell temps,\nJesús digué als deixebles:\n– «Si el teu germà peca,\nvés a trobar-lo i parleu-ne vosaltres dos sols.\nSi te'n fa cas, t'hauràs guanyat el germà.\nSi no te'n fa cas, crida'n un altre o dos més,\nperquè la causa siga jutjada\nper la paraula de dos o tres testimonis.\nSi tampoc no feia cas d'ells,\nparla'n a la comunitat reunida.\nSi ni tan sols de la comunitat no volia fer cas,\nconsidera'l com si fóra un pagà o un publicà.\nVos ho dic amb tota veritat:\nTot allò que lligareu a la terra quedarà lligat al cel,\ni tot allò que deslligareu a la terra,\nquedarà deslligat al cel.\nVos assegure també\nque, si dos de vosaltres ací a la terra\ns'avenen a demanar alguna cosa,\nel meu Pare del cel els la concedirà,\nperquè, on n'hi ha dos o tres de reunits en el meu nom,\njo estic enmig d'ells.»", "dilexit_cita": "«El mateix passa amb la fe: si no va acompanyada de les obres, està completament morta.»", "dilexit_texto": "En la primera comunitat cristiana el programa de caritat no derivava d'anàlisis o de projectes, sinó directament de l'exemple de Jesús, de les mateixes paraules de l'Evangeli.\n\nLa Carta de Jaume dedica molt d'espai al problema de la relació entre rics i pobres, llançant als creients dos enèrgics crits que qüestionen la seua fe: «De què li servix a algú, germans meus, dir que té fe, si no té obres? Que potser eixa fe pot salvar-lo?\n\nDe què servix si un de vosaltres, en veure un germà o una germana nus o sense l'aliment necessari, els diu: \"Aneu en pau, escalfeu-vos i mengeu\", i no els dóna allò que necessiten per al seu cos? El mateix passa amb la fe: si no va acompanyada de les obres, està completament morta» (Jm 2, 14-17).", "dilexit_fuente": "Lleó XIV, Dilexi te (T'he estimat) 29", "mh_cita": "«Alçar una nova torre de Babel o edificar la ciutat on Déu i la humanitat habiten junts.»", "mh_texto": "La magnífica humanitat que Déu ha creat es troba hui davant d'una elecció decisiva: alçar una nova torre de Babel o edificar la ciutat on Déu i la humanitat habiten junts.\n\nCada generació rep com a herència la tasca de donar forma al seu propi temps: fer madurar la història com un lloc on es protegisca la dignitat de cada persona, es promoga la justícia i es faça possible la fraternitat. Però en cada època s'estén el risc de construir un món inhumà i més injust.\n\nAllà on la humanitat corre el perill de perdre el seu rostre, nosaltres, els cristians, alcem els ulls cap al Déu que es va fer carn, sabent que «el misteri de l'home només s'esclareix en el misteri del Verb encarnat». En Jesucrist, esta magnífica humanitat troba el camí, la veritat i la vida, obrint a cadascun de nosaltres la via per créixer cap a la plenitud.", "mh_fuente": "LLEÓ XIV · MAGNIFICA HUMANITAS", "of_intro": "Sacerdot: Senyor, tu ens has fet responsables els uns dels altres i ens promets la teua presència allà on ens reunim en el teu nom. Confiats en eixa promesa, et presentem les nostres súpliques, responent: R/. Senyor, escolta'ns.", "pet1": "Per l'Església, perquè se situe sempre al costat del pobre, del feble i del desemparat. Que hi haja una veritable opció preferencial pels pobres i que siga apreciable per la societat.", "pet2": "Per la Pau a l'Iran, Palestina, Ucraïna, el Iemen, el Sudan del Sud. Són massa guerres, massa dolor. Per una humanitat unida i sense violència, que l'amor regne sempre.", "pet3": "Per la recuperació dels boscos dels incendis d'este estiu; són amb nosaltres i la resta de la Casa Comuna, la creació que hem de cuidar i conservar. Que no caiguen en el nostre oblit ni en el dels polítics.", "oracion_final": "Canta'm les veritats\n\nCanta'm les veritats de la meua vida.\nEscoltades dels teus llavis\nno sonaran a càlid retret,\nsinó a amor que m'accepta esquinçat.\nCanta'm les veritats.\n\nAcostume\ndiàriament a caure en l'engany\nde condoldre'm dels meus propis dols\ni, sense criteri, disculpar les meues errades.\nMire tant les faltes dels altres…\nTantes receptes done que jo no faig…\nDigue'm com em veus, Tu que m'abraces\namb els teus ulls eterns de miracle.\nNo perdré els ànims. Tu saps\ncorregir amb amor. Porta la teua mà\na les secretes nafres. Vinga, canta'm\nles veritats que sanen els meus pecats.\n\n(Luis Carlos Flores Mateos, SJ)"};
 let estado = JSON.parse(JSON.stringify(DEFAULTS));
-let fotos = { portada:"", laudato:"", evangelio:"", dilexit:"", magnifica:"" };  // imágenes en base64
+let fotos = { portada:"", laudato:"", evangelio:"", dilexit:"", magnifica:"", extra1:"", extra2:"" };  // imágenes en base64
 
 const UMBRAL_ORACION = 1500; // por encima → tratamiento ligero
 
@@ -344,16 +352,19 @@ function construirHoja(d, encoger){
   const larga = (d.oracion_final||"").length > UMBRAL_ORACION;
   const estiloVerso = encoger ? ' style="font-size:0.9em;"' : '';
   // Bloques opcionales (título + prosa). Solo aparecen si tienen contenido.
-  function bloqueExtra(titulo, cuerpo){
+  function bloqueExtra(titulo, cuerpo, imgKey){
     const t = (titulo||"").trim();
     const c = (cuerpo||"").trim();
-    if(!t && !c) return "";
+    const img = (imgKey && fotos[imgKey])
+      ? '<div class="foto-seccion"><img src="'+fotos[imgKey]+'" alt=""></div>'
+      : "";
+    if(!t && !c && !img) return "";
     const h = t ? '<h2>'+esc(t)+'</h2>' : "";
     const b = c ? parrafos(c) : "";
-    return '<section class="seccion">'+h+b+'</section>';
+    return '<section class="seccion">'+h+img+b+'</section>';
   }
-  const extrasHTML = bloqueExtra(d.extra1_titulo, d.extra1_texto)
-                   + bloqueExtra(d.extra2_titulo, d.extra2_texto);
+  const extrasHTML = bloqueExtra(d.extra1_titulo, d.extra1_texto, 'extra1')
+                   + bloqueExtra(d.extra2_titulo, d.extra2_texto, 'extra2');
   // Bloque de noticias (infosj.es): hasta 3 titulares enlazados + resumen.
   // Solo aparece si hay al menos un titular y not_mostrar!="no".
   function escAtributo(u){ return esc(u).replace(/"/g,"&quot;"); }
@@ -404,7 +415,7 @@ function construirHoja(d, encoger){
     '<text x="0" y="16" textLength="100" lengthAdjust="spacingAndGlyphs">'+
     '<tspan fill="#778fff">arrupe</tspan><tspan fill="#778fff">VLC</tspan></text></svg>'+
   '</div></header>'+
-  '<div class="fecha-lit">'+bil(d.fecha,VA.fecha)+'<br><span class="fecha-datos">'+bil(d.fecha2||"",VA.fecha2)+'</span></div>'+
+  '<div class="fecha-lit">'+bil(d.fecha,VA.fecha)+'<br><span class="fecha-datos">'+bil(d.fecha2||"",VA.fecha2)+'</span><br><span class="dominio">eucaristiaarrupevlc.com</span></div>'+
   '<ul class="sumario">'+sumario+'</ul>'+
   foto+
   '<div class="lema-portada">'+bil(d.lema,VA.lema)+'</div>'+
@@ -434,8 +445,6 @@ function construirHoja(d, encoger){
   '<section class="seccion" id="sec-fieles"><h2>'+bil('Oración de los fieles','Oració dels fidels')+'</h2>'+
   '<p class="intro-sacerdote">'+bil(d.of_intro,VA.of_intro)+'</p>'+peticiones+'</section>'+
 
-  extrasHTML+
-
   oracionHTML+
 
   '<section class="seccion" id="sec-magisterio"><h2>Dilexi te</h2>'+
@@ -450,6 +459,7 @@ function construirHoja(d, encoger){
   fotoSeccion('magnifica','Sube la imagen para Magnifica Humanitas')+'</section>'+
 
   guiaHTML +
+  extrasHTML+
   noticiasHTML+
   '<section class="seccion" id="sec-mapa"><h2>Cómo llegar</h2>'+
   '<p class="rubro">Centro Arrupe · Gran Vía Fernando el Católico, 78 · 46008 València</p>'+
@@ -480,6 +490,8 @@ function construirHoja(d, encoger){
 function render(){
   const encoger = document.getElementById('encoger').checked;
   document.getElementById('hoja').innerHTML = construirHoja(estado, encoger);
+  ajustarMasthead(document.getElementById('hoja'));
+  if(document.fonts && document.fonts.status !== 'loaded'){ document.fonts.ready.then(function(){ ajustarMasthead(document.getElementById('hoja')); }); }
   // contadores
   document.querySelectorAll('textarea[data-max]').forEach(function(t){
     const cont = t.parentElement.querySelector('.contador');
@@ -510,12 +522,39 @@ function subirFoto(ev, cual){
   r.readAsDataURL(f);
 }
 
+function quitarFoto(cual){ fotos[cual] = ""; render(); }
+
+// Ajusta el masthead: quita el estirado de las letras y escala cada línea
+// de forma uniforme para que ocupe el 100% del ancho sin deformar la tipografía.
+function ajustarMasthead(scope){
+  const root = scope || document;
+  const svgs = root.querySelectorAll('.masthead .titulo .linea');
+  for(let i=0;i<svgs.length;i++){
+    const t = svgs[i].querySelector('text');
+    if(!t) continue;
+    t.removeAttribute('textLength');
+    t.removeAttribute('lengthAdjust');
+    try{
+      const b = t.getBBox();
+      if(b.width > 0){
+        const v = svgs[i].viewBox.baseVal;
+        svgs[i].setAttribute('viewBox','0 0 '+(b.x+b.width).toFixed(2)+' '+v.height);
+      }
+    }catch(e){}
+  }
+}
+
 function reset(){
   if(!confirm("¿Restaurar el contenido del número XXIII de ejemplo? Se perderá lo que hayas escrito.")) return;
   estado = JSON.parse(JSON.stringify(DEFAULTS));
-  fotos = { portada:"", laudato:"", evangelio:"", dilexit:"", magnifica:"" };
+  fotos = { portada:"", laudato:"", evangelio:"", dilexit:"", magnifica:"", extra1:"", extra2:"" };
   bind();
 }
+
+// Snippet de analítica de Cloudflare que viaja en el <head> de cada hoja publicada.
+const CF_ANALYTICS = '<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "6764713a9dd44cadaffcd89dfe64474a"}\'><\/script><!-- End Cloudflare Web Analytics -->';
+// Script que escala el masthead sin deformar las letras dentro del archivo final.
+const FIT_SCRIPT = '<script>(function(){function f(){var s=document.querySelectorAll(".masthead .titulo .linea");for(var i=0;i<s.length;i++){var t=s[i].querySelector("text");if(!t)continue;t.removeAttribute("textLength");t.removeAttribute("lengthAdjust");try{var b=t.getBBox();if(b.width>0){var v=s[i].viewBox.baseVal;s[i].setAttribute("viewBox","0 0 "+(b.x+b.width).toFixed(2)+" "+v.height);}}catch(e){}}}if(document.fonts&&document.fonts.ready){document.fonts.ready.then(f);}window.addEventListener("load",f);})();<\/script>';
 
 function descargar(){
   const encoger = document.getElementById('encoger').checked;
@@ -525,9 +564,8 @@ function descargar(){
     '<title>eucaristía arrupeVLC · '+esc(estado.fecha)+'</title>'+
     '<meta property="og:title" content="eucaristía arrupeVLC">'+
     '<meta property="og:description" content="'+esc(estado.lema)+'">'+
-    ''+
-    ''+
-    '<style>'+CSS_HOJA+'</style></head><body><article class="hoja">'+hojaHTML+'</article></body></html>';
+    CF_ANALYTICS+
+    '<style>'+CSS_HOJA+'</style></head><body><article class="hoja">'+hojaHTML+'</article>'+FIT_SCRIPT+'</body></html>';
   const blob = new Blob([doc], {type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -556,6 +594,7 @@ body{background:#fff;font-size:17px;line-height:1.62;}
 .masthead .titulo .linea text{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-0.01em;}
 .masthead .titulo .vlc{color:var(--azul-bloque);}
 .fecha-lit{font-weight:700;font-style:italic;font-size:0.9rem;border-top:2.5px solid var(--tinta);border-bottom:2.5px solid var(--tinta);padding:8px 0;margin-bottom:22px;line-height:1.35;}
+.dominio{font-style:italic;font-weight:700;color:var(--tinta);}
 .sumario{margin:22px 0;padding-left:0;}
 .sumario li{font-weight:700;color:var(--azul);font-size:1.05rem;list-style:none;margin-bottom:4px;}
 .sumario li a{color:var(--azul);text-decoration:none;display:inline-block;padding:3px 0;border-bottom:1px solid transparent;}
