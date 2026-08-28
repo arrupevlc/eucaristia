@@ -409,10 +409,10 @@ function construirHoja(d, encoger){
   '<button class="btn-idioma" onclick="var h=this.closest(&#39;.hoja&#39;);h.classList.toggle(&#39;mostrar-va&#39;);this.textContent=h.classList.contains(&#39;mostrar-va&#39;)?&#39;Castellà / bilingüe&#39;:&#39;Tot en valencià&#39;;">Tot en valencià</button>'+
   '<header class="masthead"><div class="logo"><img src="'+LOGO+'" alt="Campanario"></div>'+
   '<div class="titulo">'+
-    '<svg class="linea" viewBox="0 0 100 18" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg">'+
-    '<text x="0" y="15" textLength="100" lengthAdjust="spacingAndGlyphs" fill="#778fff">eucaristía</text></svg>'+
-    '<svg class="linea" viewBox="0 0 100 19.6" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg">'+
-    '<text x="0" y="16" textLength="100" lengthAdjust="spacingAndGlyphs">'+
+    '<svg class="linea" viewBox="0 0 73.133 18" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg">'+
+    '<text x="0" y="15" fill="#778fff">eucaristía</text></svg>'+
+    '<svg class="linea" viewBox="0 0 80.226 19.6" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg">'+
+    '<text x="0" y="16">'+
     '<tspan fill="#778fff">arrupe</tspan><tspan fill="#778fff">VLC</tspan></text></svg>'+
   '</div></header>'+
   '<div class="fecha-lit">'+bil(d.fecha,VA.fecha)+'<br><span class="fecha-datos">'+bil(d.fecha2||"",VA.fecha2)+'</span><br><span class="dominio">eucaristiaarrupevlc.com</span></div>'+
@@ -490,8 +490,6 @@ function construirHoja(d, encoger){
 function render(){
   const encoger = document.getElementById('encoger').checked;
   document.getElementById('hoja').innerHTML = construirHoja(estado, encoger);
-  ajustarMasthead(document.getElementById('hoja'));
-  if(document.fonts && document.fonts.status !== 'loaded'){ document.fonts.ready.then(function(){ ajustarMasthead(document.getElementById('hoja')); }); }
   // contadores
   document.querySelectorAll('textarea[data-max]').forEach(function(t){
     const cont = t.parentElement.querySelector('.contador');
@@ -524,26 +522,6 @@ function subirFoto(ev, cual){
 
 function quitarFoto(cual){ fotos[cual] = ""; render(); }
 
-// Ajusta el masthead: quita el estirado de las letras y escala cada línea
-// de forma uniforme para que ocupe el 100% del ancho sin deformar la tipografía.
-function ajustarMasthead(scope){
-  const root = scope || document;
-  const svgs = root.querySelectorAll('.masthead .titulo .linea');
-  for(let i=0;i<svgs.length;i++){
-    const t = svgs[i].querySelector('text');
-    if(!t) continue;
-    t.removeAttribute('textLength');
-    t.removeAttribute('lengthAdjust');
-    try{
-      const b = t.getBBox();
-      if(b.width > 0){
-        const v = svgs[i].viewBox.baseVal;
-        svgs[i].setAttribute('viewBox','0 0 '+(b.x+b.width).toFixed(2)+' '+v.height);
-      }
-    }catch(e){}
-  }
-}
-
 function reset(){
   if(!confirm("¿Restaurar el contenido del número XXIII de ejemplo? Se perderá lo que hayas escrito.")) return;
   estado = JSON.parse(JSON.stringify(DEFAULTS));
@@ -553,8 +531,6 @@ function reset(){
 
 // Snippet de analítica de Cloudflare que viaja en el <head> de cada hoja publicada.
 const CF_ANALYTICS = '<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "6764713a9dd44cadaffcd89dfe64474a"}\'><\/script><!-- End Cloudflare Web Analytics -->';
-// Script que escala el masthead sin deformar las letras dentro del archivo final.
-const FIT_SCRIPT = '<script>(function(){function f(){var s=document.querySelectorAll(".masthead .titulo .linea");for(var i=0;i<s.length;i++){var t=s[i].querySelector("text");if(!t)continue;t.removeAttribute("textLength");t.removeAttribute("lengthAdjust");try{var b=t.getBBox();if(b.width>0){var v=s[i].viewBox.baseVal;s[i].setAttribute("viewBox","0 0 "+(b.x+b.width).toFixed(2)+" "+v.height);}}catch(e){}}}if(document.fonts&&document.fonts.ready){document.fonts.ready.then(f);}window.addEventListener("load",f);})();<\/script>';
 
 function descargar(){
   const encoger = document.getElementById('encoger').checked;
@@ -565,7 +541,7 @@ function descargar(){
     '<meta property="og:title" content="eucaristía arrupeVLC">'+
     '<meta property="og:description" content="'+esc(estado.lema)+'">'+
     CF_ANALYTICS+
-    '<style>'+CSS_HOJA+'</style></head><body><article class="hoja">'+hojaHTML+'</article>'+FIT_SCRIPT+'</body></html>';
+    '<style>'+CSS_HOJA+'</style></head><body><article class="hoja">'+hojaHTML+'</article></body></html>';
   const blob = new Blob([doc], {type:'text/html'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
