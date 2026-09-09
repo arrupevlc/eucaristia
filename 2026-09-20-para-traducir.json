@@ -1,0 +1,114 @@
+{
+ "hoja": "2026-09-20.html",
+ "tiempo_liturgico": "Domingo XXV del tiempo ordinario",
+ "ciclo_fecha": "Ciclo A · 20/09/2026 · Año V",
+ "citas_lecturas": "Is 55, 6-9\nSal 144\nFlp 1, 20c-24. 27a\nMt 20, 1-16a",
+ "instrucciones": "Devuélveme la hoja con el valencià al día. Las lecturas (l1_texto, salmo_r, salmo_texto, l2_texto, ev_texto) se toman literalmente del leccionari valencià del proyecto, no se traducen. El resto se traduce al registro litúrgico valencià.",
+ "campos_sin_traducir": [],
+ "campos": {
+  "fecha": {
+   "es": "Domingo XXV del tiempo ordinario",
+   "va_actual": "Diumenge XXV durant l'any"
+  },
+  "fecha2": {
+   "es": "Ciclo A · 20/09/2026 · Año V",
+   "va_actual": "Cicle A · 20/09/2026 · Any V"
+  },
+  "lema": {
+   "es": "¿Vas a tener envidia porque yo soy bueno?",
+   "va_actual": "¿Tens enveja perquè jo sóc generós?"
+  },
+  "ls_texto": {
+   "es": "Mientras tanto, los poderes económicos continúan justificando el actual sistema mundial, donde priman una especulación y una búsqueda de la renta financiera que tienden a ignorar todo contexto y los efectos sobre la dignidad humana y el medio ambiente. Así se manifiesta que la degradación ambiental y la degradación humana y ética están íntimamente unidas.\n\nMuchos dirán que no tienen conciencia de realizar acciones inmorales, porque la distracción constante nos quita la valentía de advertir la realidad de un mundo limitado y finito.\n\nPor eso, hoy «cualquier cosa que sea frágil, como el medio ambiente, queda indefensa ante los intereses del mercado divinizado, convertidos en regla absoluta».",
+   "va_actual": "Mentrestant, els poders econòmics continuen justificant l'actual sistema mundial, on primen una especulació i una recerca de la renda financera que tendixen a ignorar tot context i els efectes sobre la dignitat humana i el medi ambient. Així es manifesta que la degradació ambiental i la degradació humana i ètica estan íntimament unides.\n\nMolts diran que no tenen consciència de realitzar accions immorals, perquè la distracció constant ens lleva la valentia d'advertir la realitat d'un món limitat i finit.\n\nPer això, hui «qualsevol cosa que siga fràgil, com el medi ambient, queda indefensa davant dels interessos del mercat divinitzat, convertits en regla absoluta»."
+  },
+  "mon_entrada": {
+   "es": "Isaías nos avisa desde la primera lectura: los pensamientos de Dios no son los nuestros. Lo damos por sabido, pero cuesta aceptarlo el día en que su manera de repartir no coincide con nuestras cuentas.\n\nEl evangelio de hoy es una de esas parábolas que se disfrutan poco. Un propietario paga lo mismo al que ha trabajado desde el amanecer y al que ha llegado cuando ya caía la tarde. Y nosotros, casi sin darnos cuenta, nos ponemos del lado de los que protestan.\n\nPorque hemos aprendido a medirlo todo: las horas, los méritos, lo que nos corresponde. Y desde ahí la generosidad con otro se vive como una injusticia propia.\n\nLa pregunta del final desarma: ¿vas a tener tú envidia porque yo soy bueno? Nadie ha recibido de menos. Lo que ocurre es que Dios es más generoso de lo que nuestras cuentas soportan.\n\nEmpezamos esta eucaristía pidiendo que se nos ensanche la mirada: para alegrarnos de que a otro le vaya bien y para dejar de reclamar como salario lo que se nos ha dado gratis.",
+   "va_actual": "Isaïes ens avisa des de la primera lectura: els pensaments de Déu no són els nostres. Ho donem per sabut, però costa acceptar-ho el dia que la seua manera de repartir no coincidix amb els nostres comptes.\n\nL'evangeli de hui és una d'eixes paràboles que es gaudixen poc. Un propietari paga el mateix al qui ha treballat des de l'alba i al qui ha arribat quan ja caïa la vesprada. I nosaltres, quasi sense adonar-nos-en, ens posem al costat dels qui protesten.\n\nPerquè hem aprés a mesurar-ho tot: les hores, els mèrits, allò que ens correspon. I des d'ahí la generositat amb un altre es viu com una injustícia pròpia.\n\nLa pregunta del final ens desarma: ¿tens enveja perquè jo sóc generós? Ningú no ha rebut de menys. El que passa és que Déu és més generós del que els nostres comptes suporten.\n\nComencem esta eucaristia demanant que se'ns eixample la mirada: per a alegrar-nos que a un altre li vaja bé i per a deixar de reclamar com a salari allò que se'ns ha donat de franc."
+  },
+  "mon_lecturas": {
+   "es": "Isaías invita a buscar al Señor mientras se deja encontrar, y recuerda que sus caminos distan de los nuestros tanto como el cielo dista de la tierra.\n\nEl salmo canta a un Dios clemente y misericordioso, bueno con todos y cercano a quien lo invoca de verdad.\n\nPablo escribe desde la cárcel y deja de calcular: para él la vida es Cristo, y hasta el deseo de morir se ordena al bien de la comunidad que todavía lo necesita.\n\nEl evangelio baja la enseñanza al terreno del jornal y del contrato. Todos reciben lo necesario para vivir un día, y el escándalo no nace de que a alguien le falte, sino de que a otro le sobre gratuidad.",
+   "va_actual": "Isaïes convida a buscar el Senyor ara que es deixa trobar, i recorda que els seus camins estan per damunt dels nostres tant com la distància del cel a la terra.\n\nEl salm canta un Déu compassiu i benigne, bo per a tots i a prop dels qui l'invoquen amb sinceritat.\n\nPau escriu des de la presó i deixa de calcular: per a ell viure és Crist, i fins i tot el desig de morir s'ordena al bé de la comunitat que encara el necessita.\n\nL'evangeli baixa l'ensenyament al terreny del jornal i del contracte. Tots reben allò necessari per a viure un dia, i l'escàndol no naix que a algú li falte, sinó que a un altre li sobre gratuïtat."
+  },
+  "l1_rubro": {
+   "es": "Lectura del libro del profeta Isaías",
+   "va_actual": "Lectura del llibre del profeta Isaïes 55, 6-9"
+  },
+  "l1_texto": {
+   "es": "Buscad al Señor mientras se deja encontrar,\ninvocadlo mientras está cerca.\nQue el malvado abandone su camino,\ny el malhechor sus planes;\nque se convierta al Señor, y él tendrá piedad,\na nuestro Dios, que es rico en perdón.\nPorque mis planes no son vuestros planes,\nvuestros caminos no son mis caminos\n—oráculo del Señor—.\nComo dista el cielo de la tierra,\nasí distan mis caminos de los vuestros,\ny mis planes de vuestros planes.",
+   "va_actual": "Busqueu el Senyor, ara que es deixa trobar,\ninvoqueu-lo ara que és a prop.\nQue els injusts abandonen els seus camins,\ni els hòmens malèfics, els seus propòsits;\nque es convertisquen al Senyor i s'apiadarà d'ells,\nque tornen al nostre Déu, tan generós a perdonar.\nPerquè els meus pensaments no són els vostres,\ni els vostres camins no són els meus,\n—diu l'oracle del Senyor—.\nEls meus camins i els meus pensaments\nestan per damunt dels vostres\ntant com la distància del cel a la terra."
+  },
+  "salmo_r": {
+   "es": "R/. Cerca está el Señor de los que lo invocan.",
+   "va_actual": "R/ El Senyor és a prop dels qui l'invoquen."
+  },
+  "salmo_texto": {
+   "es": "Día tras día, te bendeciré\ny alabaré tu nombre por siempre jamás.\nGrande es el Señor, merece toda alabanza,\nes incalculable su grandeza. R/.\n\nEl Señor es clemente y misericordioso,\nlento a la cólera y rico en piedad;\nel Señor es bueno con todos,\nes cariñoso con todas sus criaturas. R/.\n\nEl Señor es justo en todos sus caminos,\nes bondadoso en todas sus acciones;\ncerca está el Señor de los que lo invocan,\nde los que lo invocan sinceramente. R/.",
+   "va_actual": "Vos beneiré, Déu meu, dia rere dia,\nlloaré per sempre el vostre nom.\nEl Senyor és gran. No vos canseu de lloar-lo,\nque la seua grandesa no té límits. R/\n\nEl Senyor és compassiu i benigne,\nlent per al castic, bo en l'amor.\nEl Senyor és bo per a tots,\nestima entranyablement tot allò que ell ha creat. R/\n\nSón camins de bondat els del Senyor,\nles seues obres són obres d'amor.\nEl Senyor és a prop dels qui l'invoquen,\ndels qui l'invoquen amb sinceritat. R/"
+  },
+  "l2_rubro": {
+   "es": "Lectura de la carta de sant Pau als cristians de Filips",
+   "va_actual": "Lectura de la carta de sant Pau als cristians de Filips 1, 20c-24. 27a"
+  },
+  "l2_texto": {
+   "es": "Germans, tant si isc en vida d'aquesta presó, com si he de morir, sé que Crist serà glorificat en el meu cos, perquè, per a mi, viure és Crist, i morir em seria un guany.\n\nPerò quan pense que, mentre continua la meua vida, puc fer un treball profitós, no sé què triar; em trobe pres per aquesta alternativa: d'una banda, el meu desig és de morir ja per estar amb Crist, cosa incomparablement millor; però, d'altra banda, pensant en vosaltres, veig més necessari que continue la meua vida corporal.\n\nAra, a vosaltres, vos demane solament això: que porteu una vida digna de l'evangeli del Crist.",
+   "va_actual": "Germans,\ntant si isc en vida d'aquesta presó,\ncom si he de morir,\nsé que Crist serà glorificat en el meu cos,\nperquè, per a mi,\nviure és Crist,\ni morir em seria un guany.\nPerò quan pense que, mentre continua la meua vida,\npuc fer un treball profitós,\nno sé què triar;\nem trobe pres per aquesta alternativa:\nd'una banda,\nel meu desig és de morir ja per estar amb Crist,\ncosa incomparablement millor;\nperò, d'altra banda, pensant en vosaltres,\nveig més necessari que continue la meua vida corporal.\nAra, a vosaltres, vos demane solament això:\nque porteu una vida\ndigna de l'evangeli del Crist."
+  },
+  "l2_resp": {
+   "es": "Paraula de Déu.",
+   "va_actual": "Paraula de Déu."
+  },
+  "ev_rubro": {
+   "es": "Lectura del santo evangelio según san Mateo (20, 1-16a)",
+   "va_actual": "Lectura de l'evangeli segons sant Mateu 20, 1-16a"
+  },
+  "ev_texto": {
+   "es": "En aquel tiempo, dijo Jesús a sus discípulos esta parábola:\n\n«El reino de los cielos se parece a un propietario que al amanecer salió a contratar jornaleros para su viña. Después de ajustarse con ellos en un denario por jornada, los mandó a la viña.\n\nSalió otra vez a media mañana, vio a otros que estaban en la plaza sin trabajo, y les dijo: \"Id también vosotros a mi viña, y os pagaré lo debido\". Ellos fueron.\n\nSalió de nuevo hacia mediodía y a media tarde e hizo lo mismo. Salió al caer la tarde y encontró a otros, parados, y les dijo: \"¿Cómo es que estáis aquí el día entero sin trabajar?\". Le respondieron: \"Nadie nos ha contratado\". Él les dijo: \"Id también vosotros a mi viña\".\n\nCuando oscureció, el dueño dijo al capataz: \"Llama a los jornaleros y págales el jornal, empezando por los últimos y acabando por los primeros\". Vinieron los del atardecer y recibieron un denario cada uno.\n\nCuando llegaron los primeros, pensaban que recibirían más, pero ellos también recibieron un denario cada uno. Al recibirlo se pusieron a protestar contra el amo: \"Estos últimos han trabajado sólo una hora, y los has tratado igual que a nosotros, que hemos aguantado el peso del día y el bochorno\".\n\nÉl replicó a uno de ellos: \"Amigo, no te hago ninguna injusticia. ¿No nos ajustamos en un denario? Toma lo tuyo y vete. Quiero darle a este último igual que a ti. ¿Es que no tengo libertad para hacer lo que quiera en mis asuntos? ¿O vas a tener tú envidia porque yo soy bueno?\".\n\nAsí, los últimos serán primeros y los primeros, últimos.»",
+   "va_actual": "En aquell temps,\nJesús digué als seus deixebles aquesta paràbola:\n– «Amb el Regne del cel passa com amb un propietari\nque isqué de bon matí\na llogar treballadors per a la seua vinya:\nva fer tractes per un jornal,\ni els envià a la seua tasca.\nIsqué altra vegada a mig matí,\nen trobà d'altres a la plaça sense faena\ni els digué:\n–\"Aneu també vosaltres a la meua vinya;\nvos pagaré el que siga just.\"\nI ells hi van anar.\nCap a migdia i a mitjan vesprada, tornà a eixir\ni va fer allò mateix.\nUna hora abans de pondre's el sol,\nencara en trobà d'altres\ni els digué:\n–\"¿Què feu ací tot el dia desvagats?\"\nElls li contesten:\n–\"És que ningú no ens ha llogat.\"\nEls diu:\n–\"Aneu també vosaltres a la meua vinya.\"\nA poca nit,\nl'amo de la vinya digué a l'encarregat:\n–\"Crida els treballadors i paga'ls el jornal.\nComença pels que han vingut més tard,\ni acaba pels primers.\"\nVingueren, per tant, els qui feia una hora que treballaven,\ni cobraren el jornal sencer.\nQuan tocava als primers,\nes pensaren que cobrarien més,\nperò van cobrar el mateix jornal.\nEn veure això, remugaven i deien al propietari:\n–\"Aquests darrers han treballat només una hora\ni els pagues igual que a nosaltres,\nque hem hagut de suportar\ntot el pes de la jornada i la calor.\"\nEll va respondre a un d'aquests:\n–\"Company, ¿quin mal t'he fet?\n¿No havíem fet tractes per un jornal?\nDoncs, pren allò que et toca i vés-te'n.\nA aquest darrer jo li vull donar igual que a tu.\n¿Que no puc fer allò que vull a ma casa?\n¿Tens enveja perquè jo sóc generós?\"\nAixí, els darrers passaran a primers, i els primers, a darrers.»"
+  },
+  "dilexit_cita": {
+   "es": "«¿Para qué complicar lo que es tan simple?»",
+   "va_actual": "«¿Per a què complicar allò que és tan simple?»"
+  },
+  "dilexit_texto": {
+   "es": "Lo que dice la Palabra revelada «es un mensaje tan claro, tan directo, tan simple y elocuente, que ninguna hermenéutica eclesial tiene derecho a relativizarlo.\n\nLa reflexión de la Iglesia sobre estos textos no debería oscurecer o debilitar su sentido exhortativo, sino más bien ayudar a asumirlos con valentía y fervor. ¿Para qué complicar lo que es tan simple?\n\nLos aparatos conceptuales están para favorecer el contacto con la realidad que pretenden explicar, y no para alejarnos de ella».",
+   "va_actual": "Allò que diu la Paraula revelada «és un missatge tan clar, tan directe, tan simple i eloqüent, que cap hermenèutica eclesial no té dret a relativitzar-lo.\n\nLa reflexió de l'Església sobre estos textos no hauria d'enfosquir ni debilitar el seu sentit exhortatiu, sinó més aïna ajudar a assumir-los amb valentia i fervor. ¿Per a què complicar allò que és tan simple?\n\nEls aparells conceptuals estan per a afavorir el contacte amb la realitat que pretenen explicar, i no per a allunyar-nos-en»."
+  },
+  "dilexit_fuente": {
+   "es": "León XIV, Dilexi te (Te he amado) 31",
+   "va_actual": "Lleó XIV, Dilexi te (T'he estimat) 31"
+  },
+  "mh_cita": {
+   "es": "«El anuncio del Evangelio no puede olvidar la vida concreta de los pueblos.»",
+   "va_actual": "«L'anunci de l'Evangeli no pot oblidar la vida concreta dels pobles.»"
+  },
+  "mh_texto": {
+   "es": "Con este espíritu, en 1891 León XIII publicó la Encíclica Rerum novarum, cuyo 135º aniversario celebramos este año con profunda gratitud. Con ese documento, mi querido Predecesor impulsó aquella reflexión sobre la sociedad, la economía y la política que hoy llamamos «Doctrina social de la Iglesia».\n\nY cuando algunos objetaban que la Iglesia no debía desperdiciar energías en cuestiones mundanas, sino preocuparse por comunicar un mensaje de vida eterna, él respondía con realismo y sabiduría que el anuncio del Evangelio no puede olvidar la vida concreta de los pueblos.\n\nHoy, la Doctrina social de la Iglesia es un patrimonio de sabiduría, en el que encontramos principios para pensar, criterios para discernir y juzgar, y orientaciones concretas para actuar. No es un conjunto estático de conceptos, sino un corpus vivo de verdades, que custodia e interpreta la vocación de la humanidad a una vida plena y justa.",
+   "va_actual": "Amb este esperit, en 1891 Lleó XIII va publicar l'Encíclica Rerum novarum, el 135é aniversari de la qual celebrem enguany amb profunda gratitud. Amb eixe document, el meu estimat Predecessor va impulsar aquella reflexió sobre la societat, l'economia i la política que hui anomenem «Doctrina social de l'Església».\n\nI quan alguns objectaven que l'Església no havia de malbaratar energies en qüestions mundanes, sinó preocupar-se per comunicar un missatge de vida eterna, ell responia amb realisme i saviesa que l'anunci de l'Evangeli no pot oblidar la vida concreta dels pobles.\n\nHui, la Doctrina social de l'Església és un patrimoni de saviesa, en el qual trobem principis per a pensar, criteris per a discernir i jutjar, i orientacions concretes per a actuar. No és un conjunt estàtic de conceptes, sinó un corpus viu de veritats, que custodia i interpreta la vocació de la humanitat a una vida plena i justa."
+  },
+  "mh_fuente": {
+   "es": "LEÓN XIV · MAGNIFICA HUMANITAS",
+   "va_actual": "LLEÓ XIV · MAGNIFICA HUMANITAS"
+  },
+  "of_intro": {
+   "es": "Sacerdote: Señor, que sales a llamar a todas las horas y das a cada uno mucho más de lo que merece, ensancha nuestro corazón a la medida del tuyo y escucha las súplicas de tu pueblo, respondiendo: R/. Señor, escúchanos. · R/. Senyor, escolta'ns.",
+   "va_actual": "Sacerdot: Senyor, que ixes a cridar a totes les hores i dónes a cadascú molt més del que mereix, eixampla el nostre cor a la mesura del teu i escolta les súpliques del teu poble, responent: R/. Senyor, escolta'ns."
+  },
+  "pet1": {
+   "es": "Para que no administre la gracia como quien lleva un libro de cuentas, y quien llegue el último encuentre en ella el mismo pan, la misma acogida y la misma dignidad que quienes llevan toda la vida dentro.",
+   "va_actual": "Perquè no administre la gràcia com qui porta un llibre de comptes, i qui arribe l'últim hi trobe el mateix pa, la mateixa acollida i la mateixa dignitat que els qui porten tota la vida dins."
+  },
+  "pet2": {
+   "es": "Por los pueblos donde la guerra decide quién merece vivir y quién sobra, para que se abran negociaciones sinceras y la ayuda llegue primero a quienes nada pueden ofrecer a cambio.",
+   "va_actual": "Pels pobles on la guerra decidix qui mereix viure i qui sobra, perquè s'òbriguen negociacions sinceres i l'ajuda arribe primer als qui res no poden oferir a canvi."
+  },
+  "pet3": {
+   "es": "Para que dejemos de tratar la tierra como una renta de la que extraer beneficio inmediato, y sepamos poner límite a lo que degrada a la vez el ambiente y a las personas.",
+   "va_actual": "Perquè deixem de tractar la terra com una renda de la qual extraure benefici immediat, i sapiem posar límit a allò que degrada alhora l'ambient i les persones."
+  },
+  "oracion_final": {
+   "es": "Primeros y últimos\n\nNos descoloca tu lógica\nde pequeños y grandes,\nde sabios y necios,\nde enfermos y sanos.\n\nA los que están al final\nlos adelantas,\ny a quienes se pavonean,\nufanos por su asiento preferente,\nlos mandas a la última fila.\n\nA quienes lucen los galones\ndel cumplimiento y la perfección\nles ignoras las medallas,\nmientras aplaudes la dignidad\nde las cicatrices en historias bien vividas.\n\nSiembras la duda\nen los soberbios,\nal tiempo que asientas\nla verdad de los humildes.\n\nPasas de largo ante las mansiones\nbien provistas\ny te alojas en hogares\ndonde abundan las carencias.\n\nNos ilumina tu lógica\nde pequeños y grandes,\nde sabios y necios,\nde enfermos y sanos,\nde primeros y últimos.\n\nJosé María Rodríguez Olaizola SJ",
+   "va_actual": "Primeros y últimos\n\nNos descoloca tu lógica\nde pequeños y grandes,\nde sabios y necios,\nde enfermos y sanos.\n\nA los que están al final\nlos adelantas,\ny a quienes se pavonean,\nufanos por su asiento preferente,\nlos mandas a la última fila.\n\nA quienes lucen los galones\ndel cumplimiento y la perfección\nles ignoras las medallas,\nmientras aplaudes la dignidad\nde las cicatrices en historias bien vividas.\n\nSiembras la duda\nen los soberbios,\nal tiempo que asientas\nla verdad de los humildes.\n\nPasas de largo ante las mansiones\nbien provistas\ny te alojas en hogares\ndonde abundan las carencias.\n\nNos ilumina tu lógica\nde pequeños y grandes,\nde sabios y necios,\nde enfermos y sanos,\nde primeros y últimos.\n\nJosé María Rodríguez Olaizola SJ"
+  }
+ }
+}
