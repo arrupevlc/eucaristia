@@ -32,6 +32,9 @@ body{background:#fff;font-size:17px;line-height:1.6;}
 .item-hoja .fecha{font-family:'Roboto',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--azul);margin-bottom:6px;}
 .item-hoja .titulo-hoja{font-family:'DM Serif Display',serif;font-size:1.35rem;line-height:1.15;margin-bottom:6px;color:var(--tinta);}
 .item-hoja .tiempo{font-size:0.85rem;color:var(--gris);}
+.item-hoja.destacada{border:2px solid var(--azul);}
+.item-hoja .etiqueta{display:inline-block;font-family:'Roboto',sans-serif;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;background:var(--azul);color:#fff;border-radius:4px;padding:3px 8px;margin-bottom:8px;}
+.item-hoja .etiqueta.secundaria{background:var(--azul-suave);color:var(--azul);}
 .vacio{color:var(--gris);text-align:center;padding:40px 0;}
 .cierre{margin-top:48px;border-top:1px solid var(--linea);padding-top:20px;font-size:0.8rem;color:var(--gris);text-align:center;line-height:1.6;}
 .cierre .firma{font-family:'DM Serif Display',serif;color:var(--azul);margin-bottom:6px;font-size:1rem;}
@@ -71,23 +74,49 @@ body{background:#fff;font-size:17px;line-height:1.6;}
     return parseInt(p[2],10)+' de '+meses[parseInt(p[1],10)-1]+' de '+p[0];
   }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function tarjeta(h){
-    return '<a class="item-hoja" href="'+esc(h.archivo)+'">'+
+  function tarjeta(h, etiqueta){
+    var destacada = (etiqueta === 'Hoy' || etiqueta === 'Próximo domingo');
+    return '<a class="item-hoja'+(destacada?' destacada':'')+'" href="'+esc(h.archivo)+'">'+
+      (etiqueta ? '<div class="etiqueta'+(destacada?'':' secundaria')+'">'+esc(etiqueta)+'</div>' : '')+
       '<div class="fecha">'+esc(formatoFecha(h.fecha))+'</div>'+
       '<div class="titulo-hoja">'+esc(h.titulo)+'</div>'+
       '<div class="tiempo">'+esc(h.tiempo)+'</div>'+
     '</a>';
   }
+  // Fecha de hoy en València (AAAA-MM-DD), para ordenar por el domingo que toca.
+  function hoyISO(){
+    try{
+      return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Madrid',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+    }catch(e){
+      var d=new Date(); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
+    }
+  }
   if(typeof HOJAS !== 'undefined' && HOJAS.length){
-    // Más reciente arriba.
-    HOJAS.sort(function(a,b){ return b.fecha.localeCompare(a.fecha); });
-    // Solo los dos últimos domingos; el resto queda tras "Domingos anteriores".
-    var recientes = HOJAS.slice(0,2);
-    var anteriores = HOJAS.slice(2);
-    var html = recientes.map(tarjeta).join('');
+    var hoy = hoyISO();
+    // Próximas (incluido el domingo de hoy): de la más cercana a la más lejana.
+    var proximas = HOJAS.filter(function(h){ return h.fecha >= hoy; })
+                        .sort(function(a,b){ return a.fecha.localeCompare(b.fecha); });
+    // Pasadas: de la más reciente a la más antigua.
+    var pasadas = HOJAS.filter(function(h){ return h.fecha < hoy; })
+                       .sort(function(a,b){ return b.fecha.localeCompare(a.fecha); });
+    var portada, anteriores;
+    if(proximas.length){
+      // Arriba, la del próximo domingo (o la de hoy si es domingo);
+      // detrás, las futuras ya preparadas; al final, el último domingo celebrado.
+      portada = proximas.map(function(h,i){
+        return {h:h, etiqueta: h.fecha === hoy ? 'Hoy' : (i === 0 ? 'Próximo domingo' : 'Más adelante')};
+      });
+      if(pasadas.length){ portada.push({h:pasadas[0], etiqueta:'Domingo pasado'}); }
+      anteriores = pasadas.slice(1);
+    } else {
+      // Sin hojas futuras: la última publicada arriba, como hasta ahora.
+      portada = pasadas.slice(0,2).map(function(h){ return {h:h, etiqueta:''}; });
+      anteriores = pasadas.slice(2);
+    }
+    var html = portada.map(function(x){ return tarjeta(x.h, x.etiqueta); }).join('');
     if(anteriores.length){
       html += '<button type="button" id="ver-anteriores" class="ver-anteriores" aria-expanded="false" aria-controls="anteriores">Domingos anteriores</button>'+
-              '<div id="anteriores" class="anteriores" hidden>'+anteriores.map(tarjeta).join('')+'</div>';
+              '<div id="anteriores" class="anteriores" hidden>'+anteriores.map(function(h){ return tarjeta(h,''); }).join('')+'</div>';
     }
     lista.innerHTML = html;
   }
