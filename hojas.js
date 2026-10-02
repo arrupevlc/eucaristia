@@ -3,6 +3,7 @@
 // la portada pone arriba la del próximo domingo, detrás las futuras y al final la del domingo pasado.
 // Formato: { fecha:"AAAA-MM-DD", archivo:"AAAA-MM-DD.html", titulo:"...", tiempo:"..." },
 const HOJAS = [
+  { fecha:"2026-10-11", archivo:"2026-10-11.html", titulo:"A todos los que encontréis, llamadlos a la boda", tiempo:"Domingo XXVIII del tiempo ordinario · Ciclo A" },
   { fecha:"2026-10-04", archivo:"2026-10-04.html", titulo:"Arrendará la viña a otros labradores que le entreguen los frutos a su tiempo", tiempo:"Domingo XXVII del tiempo ordinario · Ciclo A" },
   { fecha:"2026-09-27", archivo:"2026-09-27.html", titulo:"Se arrepintió y fue. Los publicanos y las prostitutas van por delante de vosotros en el reino de Dios", tiempo:"Domingo XXVI del tiempo ordinario · Ciclo A" },
   { fecha:"2026-09-20", archivo:"2026-09-20.html", titulo:"¿Vas a tener envidia porque yo soy bueno?", tiempo:"Domingo XXV del tiempo ordinario · Ciclo A" },
