@@ -3,6 +3,7 @@
 // la portada pone arriba la del próximo domingo, detrás las futuras y al final la del domingo pasado.
 // Formato: { fecha:"AAAA-MM-DD", archivo:"AAAA-MM-DD.html", titulo:"...", tiempo:"..." },
 const HOJAS = [
+  { fecha:"2026-11-15", archivo:"2026-11-15.html", titulo:"Como has sido fiel en lo poco, entra en el gozo de tu señor", tiempo:"Domingo XXXIII del tiempo ordinario · Ciclo A" },
   { fecha:"2026-11-08", archivo:"2026-11-08.html", titulo:"¡Que llega el esposo, salid a su encuentro!", tiempo:"Domingo XXXII del tiempo ordinario · Ciclo A" },
   { fecha:"2026-11-01", archivo:"2026-11-01.html", titulo:"Alegraos y regocijaos, porque vuestra recompensa será grande en el cielo", tiempo:"Solemnidad de Todos los Santos · Ciclo A" },
   { fecha:"2026-10-25", archivo:"2026-10-25.html", titulo:"Amarás al Señor tu Dios, y a tu prójimo como a ti mismo", tiempo:"Domingo XXX del tiempo ordinario · Ciclo A" },
