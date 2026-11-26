@@ -3,6 +3,7 @@
 // la portada pone arriba la del próximo domingo, detrás las futuras y al final la del domingo pasado.
 // Formato: { fecha:"AAAA-MM-DD", archivo:"AAAA-MM-DD.html", titulo:"...", tiempo:"..." },
 const HOJAS = [
+  { fecha:"2026-12-06", archivo:"2026-12-06.html", titulo:"Enderezad los senderos del Señor", tiempo:"II domingo de Adviento · Ciclo B" },
   { fecha:"2026-11-29", archivo:"2026-11-29.html", titulo:"Velad, pues no sabéis cuándo vendrá el señor de la casa", tiempo:"I domingo de Adviento · Ciclo B" },
   { fecha:"2026-11-22", archivo:"2026-11-22.html", titulo:"Se sentará en el trono de su gloria y separará a unos de otros", tiempo:"Solemnidad de Jesucristo, Rey del Universo · Ciclo A" },
   { fecha:"2026-11-15", archivo:"2026-11-15.html", titulo:"Como has sido fiel en lo poco, entra en el gozo de tu señor", tiempo:"Domingo XXXIII del tiempo ordinario · Ciclo A" },
